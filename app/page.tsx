@@ -1,49 +1,47 @@
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
-import { cookies } from 'next/headers'
-import Link from 'next/link'
-import LogoutButton from '../components/LogoutButton'
-import SupabaseLogo from '../components/SupabaseLogo'
-import NextJsLogo from '../components/NextJsLogo'
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
+import Link from "next/link";
+import LogoutButton from "../components/LogoutButton";
 
 const resources = [
   {
-    title: 'Cookie-based Auth and the Next.js App Router',
+    title: "Plant Taint",
     subtitle:
-      'This free course by Jon Meyers, shows you how to configure Supabase Auth to use cookies, and steps through some common patterns.',
-    url: 'https://youtube.com/playlist?list=PL5S4mPUpp4OtMhpnp93EFSo42iQ40XjbF',
-    icon: 'M7 4V20M17 4V20M3 8H7M17 8H21M3 12H21M3 16H7M17 16H21M4 20H20C20.5523 20 21 19.5523 21 19V5C21 4.44772 20.5523 4 20 4H4C3.44772 4 3 4.44772 3 5V19C3 19.5523 3.44772 20 4 20Z',
+      "Caused by environmental factors such as wildfires, plant taint presents a health risk for consumers, and thus liability for the insurer.",
+    url: "https://youtube.com/playlist?list=PL5S4mPUpp4OtMhpnp93EFSo42iQ40XjbF",
+    icon: "M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z",
   },
   {
-    title: 'Supabase Next.js App Router Example',
+    title: "Soil Collection",
     subtitle:
-      'Want to see a code example containing some common patterns with Next.js and Supabase? Check out this repo!',
-    url: 'https://github.com/supabase/supabase/tree/master/examples/auth/nextjs',
-    icon: 'M10 20L14 4M18 8L22 12L18 16M6 16L2 12L6 8',
+      "Previously, plant taint could only be detected by expensive lab analysis. Our algorithm only depends on soil sample collection: less than 10% of the lab cost.",
+    url: "https://github.com/supabase/supabase/tree/master/examples/auth/nextjs",
+    icon: "M7.864 4.243A7.5 7.5 0 0119.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 004.5 10.5a7.464 7.464 0 01-1.15 3.993m1.989 3.559A11.209 11.209 0 008.25 10.5a3.75 3.75 0 117.5 0c0 .527-.021 1.049-.064 1.565M12 10.5a14.94 14.94 0 01-3.6 9.75m6.633-4.596a18.666 18.666 0 01-2.485 5.33",
   },
   {
-    title: 'Supabase Auth Helpers Docs',
+    title: "Our Algorithm",
     subtitle:
-      'This template has configured Supabase Auth to use cookies for you, but the docs are a great place to learn more.',
-    url: 'https://supabase.com/docs/guides/auth/auth-helpers/nextjs',
-    icon: 'M12 6.25278V19.2528M12 6.25278C10.8321 5.47686 9.24649 5 7.5 5C5.75351 5 4.16789 5.47686 3 6.25278V19.2528C4.16789 18.4769 5.75351 18 7.5 18C9.24649 18 10.8321 18.4769 12 19.2528M12 6.25278C13.1679 5.47686 14.7535 5 16.5 5C18.2465 5 19.8321 5.47686 21 6.25278V19.2528C19.8321 18.4769 18.2465 18 16.5 18C14.7535 18 13.1679 18.4769 12 19.2528',
+      "With just two soil samples, our algorithm provides an accurate risk assessment for plant quality, empowering the insurer to provide accurate rates.",
+    url: "https://supabase.com/docs/guides/auth/auth-helpers/nextjs",
+    icon: "M10 20L14 4M18 8L22 12L18 16M6 16L2 12L6 8",
   },
-]
+];
 
 const examples = [
-  { type: 'Client Components', src: 'app/_examples/client-component/page.tsx' },
-  { type: 'Server Components', src: 'app/_examples/server-component/page.tsx' },
-  { type: 'Server Actions', src: 'app/_examples/server-action/page.tsx' },
-  { type: 'Route Handlers', src: 'app/_examples/route-handler.ts' },
-  { type: 'Middleware', src: 'app/middleware.ts' },
-  { type: 'Protected Routes', src: 'app/_examples/protected/page.tsx' },
-]
+  { type: "Client Components", src: "app/_examples/client-component/page.tsx" },
+  { type: "Server Components", src: "app/_examples/server-component/page.tsx" },
+  { type: "Server Actions", src: "app/_examples/server-action/page.tsx" },
+  { type: "Route Handlers", src: "app/_examples/route-handler.ts" },
+  { type: "Middleware", src: "app/middleware.ts" },
+  { type: "Protected Routes", src: "app/_examples/protected/page.tsx" },
+];
 
 export default async function Index() {
-  const supabase = createServerComponentClient({ cookies })
+  const supabase = createServerComponentClient({ cookies });
 
   const {
     data: { user },
-  } = await supabase.auth.getUser()
+  } = await supabase.auth.getUser();
 
   return (
     <div className="w-full flex flex-col items-center">
@@ -71,28 +69,33 @@ export default async function Index() {
       <div className="animate-in flex flex-col gap-14 opacity-0 max-w-4xl px-3 py-16 lg:py-24 text-foreground">
         <div className="flex flex-col items-center mb-4 lg:mb-12">
           <div className="flex gap-8 justify-center items-center">
-            <Link href="https://supabase.com/" target="_blank">
-              <SupabaseLogo />
-            </Link>
+            <p className="font-bold tracking-widest text-3xl">
+              <Link href="https://altumlabs.co" target="_blank">
+                Altum <span className="hidden sm:inline">Labs</span>
+              </Link>
+            </p>
             <span className="border-l rotate-45 h-6" />
-            <NextJsLogo />
+            <p className="font-bold tracking-widest text-3xl">
+              Good<span className="text-green-500">Plant</span>Bad
+              <span className="text-green-500">Plant</span>
+            </p>
           </div>
-          <h1 className="sr-only">Supabase and Next.js Starter Template</h1>
-          <p className="text-3xl lg:text-4xl !leading-tight mx-auto max-w-xl text-center my-12">
-            The fastest way to start building apps with{' '}
-            <strong>Supabase</strong> and <strong>Next.js</strong>
+          <p className="text-3xl lg:text-4xl !leading-tight mx-auto max-w-xl text-center my-12 tracking-wide font-medium">
+            Identify{" "}
+            <span className="italic underline decoration-4 underline-offset-4 decoration-yellow-500">
+              taint
+            </span>
+            , ensure quality, reduce liability
           </p>
           <div className="bg-foreground py-3 px-6 rounded-lg font-mono text-sm text-background">
-            Get started by editing <strong>app/page.tsx</strong>
+            Get started
           </div>
         </div>
 
         <div className="w-full p-[1px] bg-gradient-to-r from-transparent via-foreground/10 to-transparent" />
 
         <div className="flex flex-col gap-8 text-foreground">
-          <h2 className="text-lg font-bold text-center">
-            Everything you need to get started
-          </h2>
+          <h2 className="text-lg font-bold text-center">How it works</h2>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
             {resources.map(({ title, subtitle, url, icon }) => (
               <a
@@ -102,9 +105,7 @@ export default async function Index() {
                 target="_blank"
                 rel="noreferrer"
               >
-                <h3 className="font-bold mb-2  min-h-[40px] lg:min-h-[60px]">
-                  {title}
-                </h3>
+                <h3 className="font-bold mb-4">{title}</h3>
                 <div className="flex flex-col grow gap-4 justify-between">
                   <p className="text-sm opacity-70">{subtitle}</p>
                   <div className="flex justify-between items-center">
@@ -125,20 +126,23 @@ export default async function Index() {
                       />
                     </svg>
 
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="ml-2 h-4 w-4 opacity-0 -translate-x-2 group-hover:translate-x-0 group-hover:opacity-100 transition-all"
-                    >
-                      <polyline points="9 18 15 12 9 6" />
-                    </svg>
+                    <div className="flex items-center opacity-0 -translate-x-2 group-hover:translate-x-0 group-hover:opacity-100 transition-all">
+                      <p className="ml-2 text-sm tracking-wider">learn more</p>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="h-4 w-4 ml-2"
+                      >
+                        <polyline points="9 18 15 12 9 6" />
+                      </svg>
+                    </div>
                   </div>
                 </div>
               </a>
@@ -146,44 +150,19 @@ export default async function Index() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-8 text-foreground">
-          <div className="grid gap-2 justify-center mx-auto text-center">
-            <h2 className="text-lg font-bold text-center">Examples</h2>
-            <p className="text-sm">
-              Look in the <code>_examples</code> folder to see how to create a
-              Supabase client in all the different contexts.
-            </p>
-          </div>
-          <div className="w-full justify-center border rounded-lg overflow-hidden">
-            {examples.map(({ type, src }) => (
-              <div
-                key={type}
-                className="w-full grid grid-cols-3 border-b last:border-b-0 text-sm"
-              >
-                <div className="flex items-center font-bold p-4 min-h-12 w-full">
-                  {type}
-                </div>
-                <div className="col-span-2 border-l p-4 flex items-center">
-                  <code className="text-sm whitespace-pre-wrap">{src}</code>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
         <div className="flex justify-center text-center text-xs">
           <p>
-            Powered by{' '}
+            Powered by{" "}
             <Link
-              href="https://supabase.com/"
+              href="https://altumlabs.co"
               target="_blank"
               className="font-bold"
             >
-              Supabase
+              Altum Labs
             </Link>
           </p>
         </div>
       </div>
     </div>
-  )
+  );
 }
