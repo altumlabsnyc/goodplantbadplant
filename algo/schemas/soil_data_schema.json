@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+      "plant_type": {"type": "string"},
+      "unit": {"type": "string"},
+      "soil_compounds": {
+          "type": "object",
+          "properties": {
+              "guaiacol": {"type": "number"},
+              "o-cresol": {"type": "number"},
+              "m-cresol": {"type": "number"},
+              "p-cresol": {"type": "number"},
+              "syringol": {"type": "number"}
+          },
+          "required": ["guaiacol", "o-cresol", "m-cresol", "p-cresol", "syringol"]
+      }
+  },
+  "required": ["plant_type", "unit", "soil_compounds"]
+}

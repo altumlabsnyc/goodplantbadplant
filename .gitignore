@@ -33,3 +33,6 @@ next/.vercel
 # typescript
 next/*.tsbuildinfo
 next/next-env.d.ts
+
+#environment variable file
+algo/.env
