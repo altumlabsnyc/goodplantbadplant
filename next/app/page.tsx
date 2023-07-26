@@ -2,6 +2,9 @@ import Header from "@/components/Header";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import Link from "next/link";
+import Image from 'next/image';
+import gpbp_logo from 'components/assets/img/Icon.svg';
+import logo from 'components/assets/img/logo.png';
 
 const resources = [
   {
@@ -44,70 +47,92 @@ export default async function Index() {
   } = await supabase.auth.getUser();
 
   return (
-    <div className="w-full flex flex-col items-center">
+    <div className="w-full flex flex-col items-center ">
       <Header />
 
-      <div className="animate-in flex flex-col gap-14 opacity-0 max-w-4xl px-3 py-16 lg:py-24 text-foreground">
-        <div className="flex flex-col items-center mb-4 lg:mb-12">
+      <div className="animate-in flex flex-col gap-14 opacity-0 max-w-4xl px-3 py-16 lg:py-24 text-foreground ">
+        <div className="text-black flex flex-col items-center mb-4 lg:mb-12">
+          {/* TODO: Need Better Image (background components make up logo; needs to be addressed) */}
+          <Image src={gpbp_logo} className="w-20 h-16 mb-5" alt="GPBP_Logo" />
           <div className="flex gap-8 justify-center items-center">
-            <p className="font-bold tracking-widest text-3xl">
-              <Link href="https://altumlabs.co" target="_blank">
-                Altum <span className="hidden sm:inline">Labs</span>
-              </Link>
-            </p>
-            <span className="border-l rotate-45 h-6" />
-            <p className="font-bold tracking-widest text-3xl">
-              Good<span className="text-green-500">Plant</span>Bad
-              <span className="text-green-500">Plant</span>
+            <p className="font-bold tracking-widest text-4xl">
+            <span className="text-primary">GOOD</span>Plant
+            <span className="text-bad_plant_red">BAD</span>Plant
             </p>
           </div>
-          <p className="text-3xl lg:text-4xl !leading-tight mx-auto max-w-xl text-center my-12 tracking-wide font-medium">
+          <p className="text-3xl lg:text-4xl !leading-tight mx-auto max-w-xl text-center my-12 tracking-wide font-medium ">
             Identify{" "}
             <span className="italic underline decoration-4 underline-offset-4 decoration-yellow-500">
-              taint
+              biological risk
             </span>
             , ensure quality, reduce liability
           </p>
-          <div className="bg-foreground py-3 px-6 rounded-lg font-mono text-sm text-background">
+          {/* Get Started Button */}
+          <button
+              type="button"
+              className="flex items-center px-6 py-3 font-sans rounded-3xl text-xs bg-primary text-white hover:bg-secondary_02 transition-colors duration-200"
+            >
+              Get started
+              <svg
+                className="w-3 h-3 ml-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                />
+              </svg>
+            </button>
+          {/* End Get Started Button */}
+          {/* <div className="bg-foreground py-4 px-8  font-mono text-sm text-background inline-flex space-x-1.5 > * + *">
             Get started
-          </div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none" className="">
+              <path d="M9.4043 2.65436L15.7499 9.00001L9.4043 15.3457" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M15.7499 9L2.25 9" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              
+            </svg>
+          </div> */}
         </div>
 
-        <div className="w-full p-[1px] bg-gradient-to-r from-transparent via-foreground/10 to-transparent" />
+        {/* <div className="w-full p-[1px] bg-gradient-to-r from-transparent via-foreground/10 to-transparent" /> */}
 
-        <div className="flex flex-col gap-8 text-foreground">
-          <h2 className="text-lg font-bold text-center">How it works</h2>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div className="flex flex-col gap-8 text-foreground ">
+          <h2 className="text-3xl font-bold text-center text-primary mt-20 ">How it works</h2>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10  ">
             {resources.map(({ title, subtitle, url, icon }) => (
               <Link
                 key={title}
-                className="relative flex flex-col group rounded-lg border p-6 hover:border-foreground"
+                className=" drop-shadow-lg relative flex flex-col group rounded-lg border p-6 hover:border-foreground bg-white text-paragragh_text"
                 href={url}
                 rel="noreferrer"
               >
-                <h3 className="font-bold mb-4">{title}</h3>
+                <svg
+                  width="40"
+                  height="40"
+                  viewBox="0 0 40 40"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="opacity-80 group-hover:opacity-100 pb-1 text-black"
+                >
+                  <path
+                    d={icon}
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                <h3 className="font-bold mb-4 text-primary">{title}</h3>
                 <div className="flex flex-col grow gap-4 justify-between">
-                  <p className="text-sm opacity-70">{subtitle}</p>
+                  <p className="text-sm opacity-70 text-">{subtitle}</p>
                   <div className="flex justify-between items-center">
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="opacity-80 group-hover:opacity-100"
-                    >
-                      <path
-                        d={icon}
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-
                     <div className="flex items-center opacity-0 -translate-x-2 group-hover:translate-x-0 group-hover:opacity-100 transition-all">
-                      <p className="ml-2 text-sm tracking-wider">learn more</p>
+                      <p className="ml-0 text-sm tracking-wider">Learn more</p>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
@@ -130,7 +155,39 @@ export default async function Index() {
           </div>
         </div>
 
-        <div className="flex justify-center text-center text-xs">
+        <div className="w-full p-[1px] bg-gradient-to-r from-transparent via-foreground/10 to-transparent" />
+        {/* ======= Footer ======= */}
+        <footer id="footer">
+          <div className="container text-black">
+            <h3>
+              <span className="text-primary text-bold">Good</span>Plant
+              <span className="text-bad_plant_red text-bold">Bad</span>Plant
+              by Altum Labs
+            </h3>
+            <p>Ensuring your wellness, empowering, consumer trust.</p>
+            <div className="social-links">
+              <a href="#" className="twitter">
+                <i className="bx bxl-twitter"></i>
+              </a>
+              <a href="#" className="instagram">
+                <i className="bx bxl-instagram"></i>
+              </a>
+              <a href="#" className="linkedin">
+                <i className="bx bxl-linkedin"></i>
+              </a>
+            </div>
+            <div className="copyright">
+              {" "}
+              &copy; Copyright{" "}
+              <strong>
+                <span>Altum Labs</span>
+              </strong>
+              . All Rights Reserved{" "}
+            </div>
+          </div>
+        </footer>
+      {/* End Footer */}
+        {/* <div className="flex justify-center text-center text-xs">
           <p>
             Powered by{" "}
             <Link
@@ -141,7 +198,7 @@ export default async function Index() {
               Altum Labs
             </Link>
           </p>
-        </div>
+        </div> */}
       </div>
     </div>
   );
