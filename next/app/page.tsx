@@ -1,10 +1,12 @@
 import Header from "@/components/Header";
+import Footer from "@/components/Footer"
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import Link from "next/link";
 import Image from 'next/image';
 import gpbp_logo from 'components/assets/img/Icon.svg';
-import logo from 'components/assets/img/logo.png';
+import logo from 'components/assets/img/Icon_no bg.png';
+import about_image from 'components/assets/img/about_image.png';
 
 const resources = [
   {
@@ -47,159 +49,137 @@ export default async function Index() {
   } = await supabase.auth.getUser();
 
   return (
-    <div className="w-full flex flex-col items-center ">
-      <Header />
+    <div className="w-full animate-in">
+      <meta charSet="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>GPBP by Altum Labs</title>
+      <meta name="description" content="" />
+      <meta name="keywords" content="" />
+      {/* Favicons */}
+      <link rel="icon" href="assets/img/favicon.png" />
+      <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
+      {/* Google Fonts */}
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+      <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap"
+        rel="stylesheet"
+      />
 
-      <div className="animate-in flex flex-col gap-14 opacity-0 max-w-4xl px-3 py-16 lg:py-24 text-foreground ">
-        <div className="text-black flex flex-col items-center mb-4 lg:mb-12">
-          {/* TODO: Need Better Image (background components make up logo; needs to be addressed) */}
-          <Image src={gpbp_logo} className="w-20 h-16 mb-5" alt="GPBP_Logo" />
-          <div className="flex gap-8 justify-center items-center">
-            <p className="font-bold tracking-widest text-4xl">
-            <span className="text-primary">GOOD</span>Plant
-            <span className="text-bad_plant_red">BAD</span>Plant
+      <div className="h-screen bg-opacity-70">
+        {/* ======= Header ======= */}
+        <Header />
+        {/* End Header */}
+
+        {/* ======= Hero Section ======= */}
+        <div className="text-black flex flex-col items-center font-['DM_Sans'] mt-12 lg:mb-12">
+            {/* TODO: Need Better Image (background components make up logo; needs to be addressed) */}
+            <Image src={gpbp_logo} className="w-20 h-16 mb-5" alt="GPBP_Logo" />
+            <div className="flex justify-center items-center mb-2">
+              <p className="font-bold tracking-widest text-4xl">
+              <span className="text-primary">GOOD</span>Plant
+              <span className="text-bad_plant_red">BAD</span>Plant
+              </p>
+            </div>
+            <p className="text-3xl lg:text-4xl !leading-tight mx-auto max-w-xl text-center my-12 tracking-wide font-medium ">
+              Identify{" "}
+              <span className="italic decoration-4 underline-offset-4 border-b-yellow-500 border-b-4">
+                biological risk
+              </span>
+              , ensure quality, reduce liability
             </p>
-          </div>
-          <p className="text-3xl lg:text-4xl !leading-tight mx-auto max-w-xl text-center my-12 tracking-wide font-medium ">
-            Identify{" "}
-            <span className="italic underline decoration-4 underline-offset-4 decoration-yellow-500">
-              biological risk
-            </span>
-            , ensure quality, reduce liability
-          </p>
-          {/* Get Started Button */}
-          <button
-              type="button"
-              className="flex items-center px-6 py-3 font-sans rounded-3xl text-xs bg-primary text-white hover:bg-secondary_02 transition-colors duration-200"
-            >
-              Get started
-              <svg
-                className="w-3 h-3 ml-1"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M14 5l7 7m0 0l-7 7m7-7H3"
-                />
-              </svg>
-            </button>
-          {/* End Get Started Button */}
-          {/* <div className="bg-foreground py-4 px-8  font-mono text-sm text-background inline-flex space-x-1.5 > * + *">
-            Get started
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none" className="">
-              <path d="M9.4043 2.65436L15.7499 9.00001L9.4043 15.3457" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M15.7499 9L2.25 9" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              
-            </svg>
-          </div> */}
-        </div>
 
-        {/* <div className="w-full p-[1px] bg-gradient-to-r from-transparent via-foreground/10 to-transparent" /> */}
-
-        <div className="flex flex-col gap-8 text-foreground ">
-          <h2 className="text-3xl font-bold text-center text-primary mt-20 ">How it works</h2>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10  ">
-            {resources.map(({ title, subtitle, url, icon }) => (
-              <Link
-                key={title}
-                className=" drop-shadow-lg relative flex flex-col group rounded-lg border p-6 hover:border-foreground bg-white text-paragragh_text"
-                href={url}
-                rel="noreferrer"
+            {/* Get Started Button */}
+            <button
+                type="button"
+                className="flex items-center px-6 py-3 font-sans rounded-3xl text-xs bg-primary text-white hover:bg-secondary_01 hover:text-black transition-colors duration-200"
               >
+                Get started
                 <svg
-                  width="40"
-                  height="40"
-                  viewBox="0 0 40 40"
+                  className="w-3 h-3 ml-1"
                   fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
-                  className="opacity-80 group-hover:opacity-100 pb-1 text-black"
                 >
                   <path
-                    d={icon}
-                    stroke="currentColor"
-                    strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
                   />
                 </svg>
-                <h3 className="font-bold mb-4 text-primary">{title}</h3>
-                <div className="flex flex-col grow gap-4 justify-between">
-                  <p className="text-sm opacity-70 text-">{subtitle}</p>
-                  <div className="flex justify-between items-center">
-                    <div className="flex items-center opacity-0 -translate-x-2 group-hover:translate-x-0 group-hover:opacity-100 transition-all">
-                      <p className="ml-0 text-sm tracking-wider">Learn more</p>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="h-4 w-4 ml-2"
-                      >
-                        <polyline points="9 18 15 12 9 6" />
-                      </svg>
+              </button>
+            {/* End of Get Started Button */}
+
+          {/* ======= End of Hero Section ======= */}
+          </div>
+          
+          
+          {/* ======= How it works ======= */}
+          <div className="flex flex-col items-center font-['DM_Sans'] gap-14 text-foreground px-20">
+            <h2 className="text-3xl font-bold text-center text-primary mt-20 ">How it works</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-3">
+              {resources.map(({ title, subtitle, url, icon }) => (
+                <Link
+                  key={title}
+                  className=" drop-shadow-lg relative flex flex-col group rounded-xl border p-5 hover:border-foreground bg-white text-paragragh_text mx-4 w-66 h-96"
+                  href={url}
+                  rel="noreferrer"
+                >
+                  <svg
+                    width="50"
+                    height="50"
+                    viewBox="0 0 40 40"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="opacity-80 group-hover:opacity-100 mt-6 text-black"
+                  >
+                    <path
+                      d={icon}
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <h3 className="font-bold mb-4 text-2xl text-primary">{title}</h3>
+                  <div className="flex flex-col grow gap-4 justify-between">
+                    <p className="opacity-70 text-base">{subtitle}</p>
+                    <div className="flex justify-between items-center pb-5">
+                      <div className="flex items-center opacity-0 -translate-x-2 group-hover:translate-x-0 group-hover:opacity-100 transition-all">
+                        <p className="ml-0 text-sm tracking-wider font-bold">Learn more</p>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="h-4 w-4 ml-0 mt-1"
+                        >
+                          <polyline points="9 18 15 12 9 6" />
+                        </svg>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-
-        <div className="w-full p-[1px] bg-gradient-to-r from-transparent via-foreground/10 to-transparent" />
-        {/* ======= Footer ======= */}
-        <footer id="footer">
-          <div className="container text-black">
-            <h3>
-              <span className="text-primary text-bold">Good</span>Plant
-              <span className="text-bad_plant_red text-bold">Bad</span>Plant
-              by Altum Labs
-            </h3>
-            <p>Ensuring your wellness, empowering, consumer trust.</p>
-            <div className="social-links">
-              <a href="#" className="twitter">
-                <i className="bx bxl-twitter"></i>
-              </a>
-              <a href="#" className="instagram">
-                <i className="bx bxl-instagram"></i>
-              </a>
-              <a href="#" className="linkedin">
-                <i className="bx bxl-linkedin"></i>
-              </a>
-            </div>
-            <div className="copyright">
-              {" "}
-              &copy; Copyright{" "}
-              <strong>
-                <span>Altum Labs</span>
-              </strong>
-              . All Rights Reserved{" "}
+                </Link>
+              ))}
             </div>
           </div>
-        </footer>
-      {/* End Footer */}
-        {/* <div className="flex justify-center text-center text-xs">
-          <p>
-            Powered by{" "}
-            <Link
-              href="https://altumlabs.co"
-              target="_blank"
-              className="font-bold"
-            >
-              Altum Labs
-            </Link>
-          </p>
-        </div> */}
+          {/* ======= End of How it works ======= */}
       </div>
+      
+     
+      {/* <div className="w-96 h-96 relative">
+        <div className="w-96 left-[664.73px] top-[150px] absolute text-teal-700 text-4xl font-bold leading-10">About Altum Labs</div>
+        <div className="w-96 left-[664.73px] top-[215px] absolute text-justify text-slate-400 text-lg font-normal leading-loose">Altum Labs is a next-generation technology company focused on digitizing the natural world. Our platforms empower our partners to make more informed business decisions. reduce costs, communicate more effectively, save time, avoids risks, and operate with less friction.</div>
+        <div className="w-96 h-96 left-0 top-0 absolute bg-gradient-to-b from-stone-300 to-lime-200 rounded-2xl shadow" />
+      </div> */}
+      
     </div>
   );
 }

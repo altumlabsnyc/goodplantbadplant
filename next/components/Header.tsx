@@ -1,7 +1,9 @@
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import Link from "next/link";
+import Image from "next/image"
 import LogoutButton from "./LogoutButton";
+import logo from 'components/assets/img/Icon_no bg.png';
 
 export default async function Header() {
   const supabase = createServerComponentClient({ cookies });
@@ -11,50 +13,25 @@ export default async function Header() {
   } = await supabase.auth.getUser();
 
   return (
-    <header id="header" className="fixed-top">
-        <div className="container-fluid">
-          <div className="row justify-content-center">
-            <div className="col-xl-9 d-flex align-items-center justify-content-lg-between">
-              <a
-                href="https://altumlabs.co"
-                target="_blank"
-                className="logo me-auto me-lg-0"
-              >
-                <img src="components/assets/img/logo.png" alt="" className="img-fluid" />
-              </a>
-              <nav id="navbar" className="navbar order-last">
-                <ul>
-                  <li>
-                    <a className="nav-link" href="#hero">
-                      Home
-                    </a>
-                  </li>
-                </ul>
-                <a
-                  href="/login"
-                  style={{ color: "white" }}
-                  className="get-started-btn scrollto"
-                >
-                  Login
-                </a>
+    <header className="bg-transparent text-white py-4 w-full">
+          <div className="container mx-auto flex items-center justify-between px-8 text-black">
+            <a
+              href="https://altumlabs.co"
+              target="_blank"
+              className="logo me-auto w-10 h-10"
+            >
+              <Image src={logo} alt="" className="img-fluid" />
+            </a>
 
-                <a
-                  href="/register"
-                  style={{ color: "white" }}
-                  className="get-started-btn scrollto "
-                >
-                  Register
-                </a>
-
-                <i className="bi bi-list mobile-nav-toggle"></i>
-              </nav>
-              {/* .navbar */}
-            </div>
+            <nav className="space-x-4">
+              <a href="login">Home</a>
+              <a href="login">About</a>
+            </nav>
+            <button className="px-8 py-2 bg-primary text-white rounded-3xl ml-4 hover:bg-secondary_01 hover:text-black transition-colors duration-200">
+              Login
+            </button>
           </div>
-        </div>
-      </header>
-
-      
+        </header>  
   );
 }
 
