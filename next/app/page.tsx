@@ -183,7 +183,7 @@ export default async function Index() {
             {/* Right Section */}
             <div className="w-full md:w-1/2 lg:w-2/3 md:ml-20">
               <h2 className="text-3xl font-bold mb-4 text-primary font-['DM_Sans']">About Altum Labs</h2>
-              <p className="text-lg text-paragraph_text ">
+              <p className="text-lg text-paragraph_text">
                 Altum Labs is a next-generation technology company focused on digitizing the natural world. 
                 Our platforms empower our partners to make more informed business decisions. reduce costs, 
                 communicate more effectively, save time, avoids risks, and operate with less friction.
@@ -206,7 +206,7 @@ export default async function Index() {
                 <h1 className="text-3xl text-primary font-bold mt-4">Predict Growth Outcomes</h1>
 
                 {/* Paragraph */}
-                <p className="mt-4">
+                <p className="mt-4 pr-20">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget elit nec urna venenatis
                   tempor a nec risus. Duis interdum ullamcorper arcu nec tristique. Fusce commodo, ligula
                   consectetur bibendum hendrerit, felis purus bibendum ex, ac vestibulum quam libero id ex.

@@ -13,25 +13,25 @@ export default async function Header() {
   } = await supabase.auth.getUser();
 
   return (
-    <header className="bg-transparent text-white py-4 w-full">
-          <div className="container mx-auto flex items-center justify-between px-8 text-black">
-            <a
-              href="https://altumlabs.co"
-              target="_blank"
-              className="logo me-auto w-10 h-10"
-            >
-              <Image src={logo} alt="" className="img-fluid" />
-            </a>
+    <header className="bg-transparent py-4 w-full">
+      <div className="container mx-auto flex items-center justify-between px-8 text-black">
+        <a
+          href="https://altumlabs.co"
+          target="_blank"
+          className="logo me-auto w-10 h-10"
+        >
+          <Image src={logo} alt="" className="img-fluid" />
+        </a>
 
-            <nav className="space-x-4">
-              <a href="login">Home</a>
-              <a href="login">About</a>
-            </nav>
-            <button className="px-8 py-2 bg-primary text-white rounded-3xl ml-4 hover:bg-secondary_01 hover:text-black transition-colors duration-200">
-              Login
-            </button>
-          </div>
-        </header>  
+        <nav className="space-x-4">
+          <a href="login">Home</a>
+          <a href="login">About</a>
+        </nav>
+        <button className="px-8 py-2 bg-primary text-white rounded-3xl ml-4 hover:bg-secondary_01 hover:text-black transition-colors duration-200">
+          Login
+        </button>
+      </div>
+    </header>  
   );
 }
 

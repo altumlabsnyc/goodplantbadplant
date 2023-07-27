@@ -22,8 +22,8 @@ export default async function Footer() {
           <div>
             {/* Text on the right */}
             <p className="text-sm">
-              All Rights Reserved | 
-              <span className="underline">Terms and Conditions</span> |
+              All Rights Reserved |
+              <span className="underline"> Terms and Conditions</span> |
               <span className="underline"> Privacy Policy</span>
             </p>
           </div>
