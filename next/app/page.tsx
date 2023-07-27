@@ -4,9 +4,10 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import Link from "next/link";
 import Image from 'next/image';
-import gpbp_logo from 'components/assets/img/Icon.svg';
+import gpbp_logo_cream from 'components/assets/img/Icon_cream.svg';
+import gpbp_logo_white from 'components/assets/img/Icon_white.svg';
 import logo from 'components/assets/img/Icon_no bg.png';
-import about_image from 'components/assets/img/about_image.png';
+import about_image from 'components/assets/img/about_image_2_cropped.jpg';
 
 const resources = [
   {
@@ -74,7 +75,7 @@ export default async function Index() {
         {/* ======= Hero Section ======= */}
         <div className="text-black flex flex-col items-center font-['DM_Sans'] mt-12 lg:mb-12">
             {/* TODO: Need Better Image (background components make up logo; needs to be addressed) */}
-            <Image src={gpbp_logo} className="w-20 h-16 mb-5" alt="GPBP_Logo" />
+            <Image src={gpbp_logo_cream} className="w-20 h-16 mb-5" alt="GPBP_Logo" />
             <div className="flex justify-center items-center mb-2">
               <p className="font-bold tracking-widest text-4xl">
               <span className="text-primary">GOOD</span>Plant
@@ -117,13 +118,13 @@ export default async function Index() {
           
           
           {/* ======= How it works ======= */}
-          <div className="flex flex-col items-center font-['DM_Sans'] gap-14 text-foreground px-20">
-            <h2 className="text-3xl font-bold text-center text-primary mt-20 ">How it works</h2>
-            <div className="grid grid-cols-1 lg:grid-cols-3">
+          <div className="flex flex-col items-center font-['DM_Sans'] gap-14 text-foreground mx-20">
+            <h2 className="text-3xl font-bold text-center text-primary mt-20 mx-10">How it works</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-3 mx-10 container ">
               {resources.map(({ title, subtitle, url, icon }) => (
                 <Link
                   key={title}
-                  className=" drop-shadow-lg relative flex flex-col group rounded-xl border p-5 hover:border-foreground bg-white text-paragragh_text mx-4 w-66 h-96"
+                  className=" drop-shadow-lg relative flex flex-col group rounded-xl border p-5 hover:border-foreground bg-white text-paragragh_text lg:mx-4 lg:w-66 lg:h-96"
                   href={url}
                   rel="noreferrer"
                 >
@@ -171,15 +172,57 @@ export default async function Index() {
             </div>
           </div>
           {/* ======= End of How it works ======= */}
-      </div>
-      
-     
-      {/* <div className="w-96 h-96 relative">
-        <div className="w-96 left-[664.73px] top-[150px] absolute text-teal-700 text-4xl font-bold leading-10">About Altum Labs</div>
-        <div className="w-96 left-[664.73px] top-[215px] absolute text-justify text-slate-400 text-lg font-normal leading-loose">Altum Labs is a next-generation technology company focused on digitizing the natural world. Our platforms empower our partners to make more informed business decisions. reduce costs, communicate more effectively, save time, avoids risks, and operate with less friction.</div>
-        <div className="w-96 h-96 left-0 top-0 absolute bg-gradient-to-b from-stone-300 to-lime-200 rounded-2xl shadow" />
-      </div> */}
-      
+
+          {/* ======= About Section ======= */}
+          <div className="container mx-auto mt-44 px-4 md:px-8 lg:px-36 flex justify-center items-center">
+            {/* Left Main Image */}
+            <div className="w-full md:w-1/2 lg:w-1/3 mb-8 md:mb-0">
+              <Image src={about_image} alt="About Image" className="w-full h-auto rounded-lg shadow" />
+            </div>
+
+            {/* Right Section */}
+            <div className="w-full md:w-1/2 lg:w-2/3 md:ml-20">
+              <h2 className="text-3xl font-bold mb-4 text-primary font-['DM_Sans']">About Altum Labs</h2>
+              <p className="text-lg text-paragraph_text ">
+                Altum Labs is a next-generation technology company focused on digitizing the natural world. 
+                Our platforms empower our partners to make more informed business decisions. reduce costs, 
+                communicate more effectively, save time, avoids risks, and operate with less friction.
+              </p>
+            </div>
+          </div>  
+          {/* ======= End of About Section ======= */}        
+
+          {/* ======= Other Section ======= */}
+          <div className="mt-20 font-['DM_Sans']">
+            <div className="max-w-4xl mx-auto px-8 py-16">
+              {/* Separate Box */}
+              <div className="bg-white rounded-lg shadow-lg p-6">
+                {/* Logo */}
+                <div className="flex justify-left">
+                  <Image src={gpbp_logo_white} alt="Logo" className="w-12 h-12" />
+                </div>
+
+                {/* Header */}
+                <h1 className="text-3xl text-primary font-bold mt-4">Predict Growth Outcomes</h1>
+
+                {/* Paragraph */}
+                <p className="mt-4">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget elit nec urna venenatis
+                  tempor a nec risus. Duis interdum ullamcorper arcu nec tristique. Fusce commodo, ligula
+                  consectetur bibendum hendrerit, felis purus bibendum ex, ac vestibulum quam libero id ex.
+                  Integer tincidunt mollis augue, vitae tristique nulla eleifend nec. Quisque eget eros eget
+                  justo accumsan euismod. Sed sodales tortor vel arcu porttitor, in tristique purus malesuada.
+                </p>
+              </div>
+            </div>
+          </div>
+          {/* ======= End of Other Section ======= */}
+
+          {/* ======= Footer ======= */}
+          <Footer />
+          {/* ======= End of Footer ======= */}
+          
     </div>
+  </div>
   );
 }

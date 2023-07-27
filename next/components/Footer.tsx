@@ -11,15 +11,24 @@ export default async function Footer() {
   } = await supabase.auth.getUser();
 
   return (
-    <footer id="footer absolute bottom-0 w-full flex">
-        <div className="container mx-auto pt-20 flex justify-between text-paragragh_text">
-          <h3 className="text-left">
-            Copyright{" "}&copy; {" "}2023 <strong>Altum Labs</strong>
-          </h3>
-          <h3 className="text-right">
-            All Rights Reserved | Terms and Conditions | Privacy Policy
-          </h3>
-        </div>
-      </footer>      
+    <footer className="p-4 mt-8 mx-4">
+      <div className="container mx-auto flex font-['DM_Sans'] justify-between text-paragragh_text items-center">
+          <div>
+            {/* Text on the left */}
+            <p className="text-sm">
+              Copyright{" "}&copy; {" "}2023 <strong>Altum Labs</strong>
+            </p>
+          </div>
+          <div>
+            {/* Text on the right */}
+            <p className="text-sm">
+              All Rights Reserved | 
+              <span className="underline">Terms and Conditions</span> |
+              <span className="underline"> Privacy Policy</span>
+            </p>
+          </div>
+      </div>
+    </footer>    
   );
 }
+
