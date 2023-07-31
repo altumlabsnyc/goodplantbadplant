@@ -1,0 +1,44 @@
+{
+    "start_date": "2020-09-27T08",
+    "end_date": "2020-09-28T16",
+    "bounding_box": {
+      "min_lat": "-122.905753",
+      "max_lat": "-122.276786",
+      "min_lon": "38.413020",
+      "max_lon": "38.715827"
+    },
+    "k_constant": 10,
+    "c_constant": 2.402,
+    "threshold": {
+        "latitude": 38.548493,
+        "longitude": -122.517536,
+        "UTC": "2020-09-27T08:00",
+        "aqi_value": 21,
+        "aqi_category": 1,
+        "plant_type": "grapes",
+        "unit": "ppm",
+        "soil_compounds": {
+            "guaiacol": 1.032,
+            "o-cresol": 0.171,
+            "m-cresol": 0.032,
+            "p-cresol": 0.079,
+            "syringol": 7.6e-05
+        },
+        "plant_compounds": {    
+            "guaiacol": 0.4540800000000001,
+            "o-cresol": 0.07524000000000002,
+            "m-cresol": 0.014080000000000002,
+            "p-cresol": 0.034760000000000006,
+            "syringol": 3.3440000000000005e-05
+        },
+        "smoke_coverage": 4.4,
+        "conversion_factor": 0.44000000000000006,
+        "negative_phenolic_compounds": {
+            "guaiacol": 1.0907001600000004,
+            "m-cresol": 0.03382016000000001,
+            "o-cresol": 0.18072648000000005,
+            "p-cresol": 0.08349352000000002,
+            "syringol": 8.032288000000002e-05
+        }
+    }
+  }
