@@ -22,6 +22,7 @@ There are only a handful of dependencies:
 - python-dotenv
 - ipykernel
 - jsonschema
+- simplekml (for geographical output in pdf_output.ipynb)
 
 You can manually install these, or just use one of the following to install the dependencies
 

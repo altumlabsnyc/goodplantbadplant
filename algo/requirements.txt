@@ -1,3 +1,4 @@
 python-dotenv==1.0.0
 ipykernel
 jsonschema
+geopandas==0.13.2
