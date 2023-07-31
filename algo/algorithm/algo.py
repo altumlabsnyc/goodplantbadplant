@@ -107,9 +107,11 @@ class GPBP_Algo:
             response = requests.get(airnow_api_url)
         except Exception as e:
             raise Exception("AirNow API call was invalid: {}".format(e))
-        data = response.json()
-
-        return data
+        if format == "application/json":
+            response = response.json()
+        else:
+            response = response.text
+        return response
 
     def _preprocess_air_quality_data(self, air_quality_data: dict):
         """ Processes air quality data to desired format. This includes truncating negative concentration values, and converting ug/m3 to ppm.
@@ -255,8 +257,8 @@ class GPBP_Algo:
             logging.error("Invalid soil data format: {}".format(err))
             return False
 
-        return True
-    
+        return True        
+
     def run_algorithm(self, bbox: str, start_date: str, end_date: str, 
                       initial_soil_data: dict, post_soil_data: dict, enable_logging: bool = False,
                       previous_exposed_time: float = 0.0):
@@ -311,3 +313,6 @@ class GPBP_Algo:
         results = self.evaluate_granule(pre_accident_granule, post_accident_granule, self.T)
         logging.info("Done")
         return results, pre_accident_granule, post_accident_granule
+
+
+    # generate custom ml model
